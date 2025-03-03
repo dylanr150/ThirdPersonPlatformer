@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpHeight;
     [SerializeField] private CinemachineCamera thirdPersonCam;
-    float rotationSpeed = 10f;
+    float camRotationSpeed = 10f;
     private Rigidbody rb;
 
     void Start()
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
         Vector3 moveDirection = (camForward * direction.z + camRight * direction.x);
 
         Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * camRotationSpeed);
 
         rb.linearVelocity = new Vector3(moveDirection.x * speed, rb.linearVelocity.y, moveDirection.z * speed);
     }

@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
 {
     public UnityEvent<Vector3> OnMove = new UnityEvent<Vector3>();
     public UnityEvent<Vector3> OnJump = new UnityEvent<Vector3>();
+    public UnityEvent<Vector3> doDoubleJump = new UnityEvent<Vector3>();
 
     void Update()
     {
@@ -35,12 +36,5 @@ public class InputManager : MonoBehaviour
         }
         OnMove?.Invoke(input);
         OnJump?.Invoke(jumpInput);
-
-        
-    
-    }
-    void FixedUpdate()
-    {
-
     }
 }
